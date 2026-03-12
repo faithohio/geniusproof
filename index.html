@@ -488,7 +488,7 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
-  document.querySelector('.form-submit').addEventListener('click', async function(e) {
+  document.querySelector('.form-wrap').addEventListener('submit', async function(e) {
     e.preventDefault();
     const form = document.querySelector('.form-wrap');
     const res = await fetch('https://formspree.io/f/xaqpjnlj', {
