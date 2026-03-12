@@ -166,10 +166,10 @@
   .criteria li::before { content: '✦'; color: var(--gold); font-size: 0.62rem; margin-top: 5px; flex-shrink: 0; }
   .about { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
   .about-img-wrap { position: relative; }
-  .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: var(--deep); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .about-img-placeholder { width: 100%; aspect-ratio: 4/5; background: var(--deep); display: flex; align-items: center; justify-content: center; position: relative; overflow: visible; }
   .about-img-placeholder::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,151,58,0.2), transparent 60%); }
   .about-img-name { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 700; color: rgba(250,247,242,0.08); text-align: center; line-height: 1.1; position: relative; z-index: 1; }
-  .about-frame { position: absolute; bottom: -16px; right: -16px; width: 55%; height: 55%; border: 1px solid var(--gold); pointer-events: none; }
+ .about-frame { position: absolute; bottom: -12px; right: -12px; width: 50%; height: 40%; border: 1px solid var(--gold); pointer-events: none; z-index: 2; }
   .about-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.4vw, 2.6rem); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
   .about-headline em { font-style: italic; color: var(--gold); font-weight: 400; }
   .about-body { color: var(--warm-gray); font-size: 1rem; line-height: 1.85; margin-bottom: 20px; }
