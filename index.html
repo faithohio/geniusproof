@@ -461,18 +461,18 @@
   <div class="section-label" style="justify-content:center;">Join Cohort Two</div>
   <h2 class="waitlist-headline">Ready to define<br>your <em>GeniusIdea</em>?</h2>
   <p class="waitlist-sub">Submit your details below. We'll send you cohort details, start date, and early access pricing before the public announcement.</p>
-  <div class="form-wrap">
+ <form class="form-wrap" action="https://formspree.io/f/xaqpjnlj" method="POST">
     <div class="form-row">
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
+      <input type="text" name="first_name" placeholder="First Name" required>
+<input type="text" name="last_name" placeholder="Last Name" required>
     </div>
-    <input type="email" placeholder="Email Address" required>
-    <input type="text" placeholder="What do you do / your work in one line">
-    <select><option value="" disabled selected>How did you hear about GeniusProof™?</option><option>Faith Ohio's newsletter</option><option>Social media</option><option>Word of mouth / referral</option><option>Cohort One participant</option><option>Other</option></select>
-    <textarea placeholder="Optional: What's the one thing you're hoping to walk away with?"></textarea>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="work" placeholder="What do you do / your work in one line">
+    <select name="source"><option value="" disabled selected>How did you hear about GeniusProof™?</option><option>Faith Ohio's newsletter</option><option>Social media</option><option>Word of mouth / referral</option><option>Cohort One participant</option><option>Other</option></select>
+    <textarea name="intention" placeholder="Optional: What's the one thing you're hoping to walk away with?"></textarea>
     <button class="form-submit" type="submit">Request My Spot →</button>
     <p class="form-note">No spam. Only cohort details, timeline, and early access pricing.</p>
-  </div>
+  </form>
 </section>
 
 <div class="ornament">✦ &nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp; ✦</div>
@@ -488,12 +488,22 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
-  document.querySelector('.form-submit').addEventListener('click', function(e) {
+  document.querySelector('.form-submit').addEventListener('click', async function(e) {
     e.preventDefault();
-    this.textContent = '✦ You\'re on the list — we\'ll be in touch.';
-    this.style.background = 'var(--gold)';
-    this.style.color = 'var(--deep)';
-    this.disabled = true;
+    const form = document.querySelector('.form-wrap');
+    const res = await fetch('https://formspree.io/f/xaqpjnlj', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      this.textContent = '✦ You\'re on the list — we\'ll be in touch.';
+      this.style.background = 'var(--gold)';
+      this.style.color = 'var(--deep)';
+      this.disabled = true;
+    } else {
+      this.textContent = 'Something went wrong — try again';
+    }
   });
 </script>
 </body>
