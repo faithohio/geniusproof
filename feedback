@@ -1,1 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeniusProof™ — Cohort Feedback</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --ink: #0E0E0E;
+  --ink2: #2A2A2A;
+  --mid: #767676;
+  --light: #B8B8B8;
+  --rule: #E4E2DE;
+  --bg: #FAF9F7;
+  --paper: #FFFFFF;
+  --accent: #C8622A;
+  --mark: #F0E6C8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Syne', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 28px 100px;
+}
+
+/* HEADER */
+.header {
+  padding: 64px 0 52px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 56px;
+}
+
+.header-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.logo-mark {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+}
+
+.logo-mark span { color: var(--accent); }
+.dot-sep { color: var(--light); font-size: 8px; }
+
+.header h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(42px, 8vw, 68px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.header h1 em { font-style: italic; color: var(--accent); }
+
+.header-body {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--mid);
+  max-width: 520px;
+}
+
+/* BLOCK */
+.block { margin-bottom: 52px; animation: fadeUp 0.5s ease both; }
+.block:nth-child(1){animation-delay:.05s}.block:nth-child(2){animation-delay:.1s}.block:nth-child(3){animation-delay:.15s}.block:nth-child(4){animation-delay:.2s}.block:nth-child(5){animation-delay:.25s}.block:nth-child(6){animation-delay:.3s}.block:nth-child(7){animation-delay:.35s}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.block-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.block-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.block-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.block-title em { font-style: italic; }
+
+.block-desc {
+  font-size: 13.5px;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  margin-top: -8px;
+  padding-left: 38px;
+}
+
+/* FIELDS */
+.field { margin-bottom: 24px; }
+
+.field > label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink2);
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.field label .note { font-weight: 400; color: var(--mid); font-size: 12px; }
+.req { color: var(--accent); }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 13px 15px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  -webkit-appearance: none;
+}
+
+input::placeholder, textarea::placeholder { color: var(--light); }
+input:focus, textarea:focus { border-color: var(--ink2); box-shadow: 0 0 0 3px rgba(14,14,14,0.05); }
+textarea { resize: vertical; min-height: 108px; line-height: 1.65; }
+
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* Highlight testimonial field */
+.hl-field textarea {
+  background: var(--mark);
+  border-color: #D4B870;
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  font-style: italic;
+  min-height: 140px;
+  line-height: 1.7;
+}
+
+/* STARS */
+.star-wrap {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 4px;
+  width: fit-content;
+  margin-top: 6px;
+}
+.star-wrap input { display: none; }
+.star-wrap label {
+  font-size: 28px;
+  color: var(--rule);
+  cursor: pointer;
+  transition: color 0.1s;
+  line-height: 1;
+  margin: 0;
+}
+.star-wrap label:hover,
+.star-wrap label:hover ~ label,
+.star-wrap input:checked ~ label { color: var(--accent); }
+
+/* NPS */
+.nps-row { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.nps-btn {
+  width: 46px; height: 46px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all 0.12s;
+  display: flex; align-items: center; justify-content: center;
+}
+.nps-btn:hover { border-color: var(--ink); color: var(--ink); }
+.nps-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* OPTIONS */
+.option-list { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+
+.opt {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 13px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  cursor: pointer;
+  transition: all 0.12s;
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.45;
+}
+.opt:hover { border-color: var(--ink2); }
+.opt input { display: none; }
+
+.opt-box {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--light);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--paper);
+  margin-top: 1px;
+  transition: all 0.12s;
+}
+.opt-circle .opt-box { border-radius: 50%; }
+
+.opt input:checked + .opt-box { background: var(--ink); border-color: var(--ink); }
+.opt input:checked + .opt-box::after { content: '✓'; }
+.opt-circle input:checked + .opt-box::after { content: '●'; font-size: 7px; }
+.opt input:checked ~ .opt-txt { color: var(--ink); font-weight: 500; }
+
+/* WINS GRID */
+.wins-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
+
+/* VIDEO BLOCK */
+.video-block {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 10px;
+  padding: 36px 40px;
+  margin-bottom: 52px;
+}
+.video-block .block-num { color: rgba(200,98,42,0.9); }
+.video-block .block-head { border-bottom-color: rgba(255,255,255,0.1); }
+.video-block .block-title { color: var(--paper); }
+.video-block .block-desc { color: rgba(255,255,255,0.5); }
+.video-block .opt { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+.video-block .opt:hover { border-color: rgba(255,255,255,0.35); }
+.video-block .opt-box { border-color: rgba(255,255,255,0.25); }
+.video-block .opt input:checked + .opt-box { background: var(--accent); border-color: var(--accent); }
+.video-block .opt input:checked ~ .opt-txt { color: var(--paper); }
+
+/* SUBMIT */
+.submit-area { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 8px; }
+
+.btn {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 6px;
+  padding: 16px 48px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn:hover { background: #1e1e1e; transform: translateY(-1px); }
+.btn-note { font-size: 12px; color: var(--light); }
+
+hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+/* SUCCESS */
+.success { display: none; text-align: center; padding: 80px 20px; }
+.success.show { display: block; }
+.success-mark {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--accent);
+  letter-spacing: 0.1em; margin-bottom: 28px;
+}
+.success h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 42px; font-weight: 400; font-style: italic;
+  color: var(--ink); margin-bottom: 18px; line-height: 1.1;
+}
+.success p { font-size: 15px; color: var(--mid); line-height: 1.75; max-width: 420px; margin: 0 auto; }
+
+/* FOOTER */
+.foot {
+  text-align: center;
+  padding: 40px 0 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px; color: var(--light); letter-spacing: 0.06em;
+}
+
+@media (max-width: 540px) {
+  .wins-grid, .field-row { grid-template-columns: 1fr; }
+  .video-block { padding: 28px 24px; }
+  .nps-btn { width: 38px; height: 38px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-eyebrow">
+      <span class="logo-mark">GENIUS<span>PROOF™</span></span>
+      <span class="dot-sep">✦</span>
+      <span class="logo-mark">COHORT ONE · FEEDBACK</span>
+    </div>
+    <h1>You built something<br><em>that will last.</em></h1>
+    <p class="header-body">Six weeks ago you showed up to do the most serious intellectual work of your career. Now we want to hear how it landed — what shifted, what you built, and what could be sharper. Your honest reflection shapes every cohort after this one.</p>
+  </div>
+
+  <form id="form" action="https://formspree.io/f/xaqpjnlj" method="POST">
+
+    <!-- 01 -->
+    <div class="block">
+      <div class="block-head"><span class="block-num">01</span><h2 class="block-title">A bit about you</h2></div>
+      <p class="block-desc">So we know who we're hearing from — and can follow up if you're open to a video.</p>
+
+      <div class="field-row">
+        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" placeholder="Your name" required></div>
+        <div class="field"><label>Email <span class="req">*</span></label><input type="email" placeholder="you@email.com" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>What do you do? <span class="note">(work/title)</span></label><input type="text" placeholder="Consultant, Coach, Creator…"></div>
+        <div class="field"><label>Phone <span class="note">(for video follow-up)</span></label><input type="tel" placeholder="+234 000 000 0000"></div>
+      </div>
+      <div class="field">
+        <label>How would you describe your body of work before the lab? <span class="req">*</span></label>
+        <textarea placeholder="What was your situation — scattered, unclear, stalled? Give us the honest picture."></textarea>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="block">
+      <div class="block-head"><span class="block-num">02</span><h2 class="block-title">The <em>shift</em></h2></div>
+      <p class="block-desc">This is where your story lives. Be as specific as you can — vague answers don't help you or us.</p>
+
+      <div class="field">
+        <label>What changed? What do you know, own, or see differently now? <span class="req">*</span></label>
+        <textarea placeholder="Shifts in your thinking, clarity you gained, things you finally named…"></textarea>
+      </div>
+      <div class="field">
+        <label>What is your GeniusIdea? How would you articulate it now? <span class="req">*</span></label>
+        <textarea placeholder="Even a rough working version — what's the core ideology you excavated?"></textarea>
+      </div>
+      <div class="field">
+        <label>Where are you with your Cornerstone Essay?</label>
+        <div class="option-list">
+          <label class="opt opt-circle"><input type="radio" name="essay" value="live"><span class="opt-box"></span><span class="opt-txt">Published — it's live</span></label>
+          <label class="opt opt-circle"><input type="radio" name="essay" value="drafted"><span class="opt-box"></span><span class="opt-txt">Drafted — in final polish</span></label>
+          <label class="opt opt-circle"><input type="radio" name="essay" value="inprogress"><span class="opt-box"></span><span class="opt-txt">Still in progress — making headway</span></label>
+          <label class="opt opt-circle"><input type="radio" name="essay" value="stuck"><span class="opt-box"></span><span class="opt-txt">Stuck — I need support to finish it</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>If it's published, drop the link</label>
+        <input type="text" placeholder="https://…">
+      </div>
+      <div class="field">
+        <label>What's the single biggest breakthrough you had across the 6 weeks? <span class="req">*</span></label>
+        <textarea placeholder="Don't undersell it. What genuinely cracked open for you?"></textarea>
+      </div>
+      <div class="field">
+        <label>Was there a specific week, session, or moment that hit different?</label>
+        <textarea placeholder="A framework, a prompt, a conversation, a week's teaching — what landed hardest?"></textarea>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="block">
+      <div class="block-head"><span class="block-num">03</span><h2 class="block-title">Your <em>testimonial</em></h2></div>
+      <p class="block-desc">Write what you'd say to a peer who asked about GeniusProof™ over coffee. Honest, direct, yours. This may be shared publicly.</p>
+
+      <div class="field hl-field">
+        <label>In your own words — <span class="note">write it like you'd say it</span></label>
+        <textarea placeholder="GeniusProof gave me…"></textarea>
+      </div>
+      <div class="field">
+        <label>Overall experience rating <span class="req">*</span></label>
+        <div class="star-wrap">
+          <input type="radio" name="rating" id="s5" value="5"><label for="s5">★</label>
+          <input type="radio" name="rating" id="s4" value="4"><label for="s4">★</label>
+          <input type="radio" name="rating" id="s3" value="3"><label for="s3">★</label>
+          <input type="radio" name="rating" id="s2" value="2"><label for="s2">★</label>
+          <input type="radio" name="rating" id="s1" value="1"><label for="s1">★</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>How likely are you to recommend GeniusProof™ to someone in your network? <span class="note">(1–10)</span></label>
+        <div class="nps-row" id="nps">
+          <button type="button" class="nps-btn" data-v="1">1</button>
+          <button type="button" class="nps-btn" data-v="2">2</button>
+          <button type="button" class="nps-btn" data-v="3">3</button>
+          <button type="button" class="nps-btn" data-v="4">4</button>
+          <button type="button" class="nps-btn" data-v="5">5</button>
+          <button type="button" class="nps-btn" data-v="6">6</button>
+          <button type="button" class="nps-btn" data-v="7">7</button>
+          <button type="button" class="nps-btn" data-v="8">8</button>
+          <button type="button" class="nps-btn" data-v="9">9</button>
+          <button type="button" class="nps-btn" data-v="10">10</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>May we use your testimonial publicly?</label>
+        <div class="option-list">
+          <label class="opt opt-circle"><input type="radio" name="consent" value="full"><span class="opt-box"></span><span class="opt-txt">Yes — full name and testimony</span></label>
+          <label class="opt opt-circle"><input type="radio" name="consent" value="first"><span class="opt-box"></span><span class="opt-txt">Yes — first name only</span></label>
+          <label class="opt opt-circle"><input type="radio" name="consent" value="anon"><span class="opt-box"></span><span class="opt-txt">Yes — anonymous is fine</span></label>
+          <label class="opt opt-circle"><input type="radio" name="consent" value="no"><span class="opt-box"></span><span class="opt-txt">No — internal feedback only</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="block">
+      <div class="block-head"><span class="block-num">04</span><h2 class="block-title">Mark your <em>wins</em></h2></div>
+      <p class="block-desc">Check every box that applies. Don't edit yourself — this tracks what the lab actually moves.</p>
+
+      <div class="field">
+        <label>What did you walk away with? <span class="note">Select all that apply</span></label>
+        <div class="wins-grid">
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">A clear, articulated GeniusIdea</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Cornerstone Essay published</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Mapped intellectual ecosystem</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Language for what I do</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Sharper positioning</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Content that now has a center</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">More confidence in my authority</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">A signature framework</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Clarity on my direction</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Meaningful peer connections</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Impact on my client work</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Something else (describe below)</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Any other wins worth naming?</label>
+        <textarea placeholder="Results, decisions made, things shipped, conversations changed…"></textarea>
+      </div>
+      <div class="field">
+        <label>Paint a picture of the person who needs GeniusProof™ most. Who is she/he?</label>
+        <textarea placeholder="This helps us find the right Cohort Two participants…"></textarea>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="block">
+      <div class="block-head"><span class="block-num">05</span><h2 class="block-title">Make it <em>sharper</em></h2></div>
+      <p class="block-desc">No ego here — we want the honest critique. What would make Cohort Two better?</p>
+
+      <div class="field">
+        <label>What did you love most — don't touch this?</label>
+        <textarea placeholder="Content, structure, community, Faith's teaching, the pacing…"></textarea>
+      </div>
+      <div class="field">
+        <label>What should be changed, added, or cut?</label>
+        <textarea placeholder="What would you do differently if you were designing the next cohort?"></textarea>
+      </div>
+      <div class="field">
+        <label>Was anything unclear, underdeveloped, or out of place?</label>
+        <textarea placeholder="A week, a concept, a resource, the overall structure…"></textarea>
+      </div>
+      <div class="field">
+        <label>How did 6 weeks feel?</label>
+        <div class="option-list">
+          <label class="opt opt-circle"><input type="radio" name="duration" value="short"><span class="opt-box"></span><span class="opt-txt">Too short — needed more time</span></label>
+          <label class="opt opt-circle"><input type="radio" name="duration" value="right"><span class="opt-box"></span><span class="opt-txt">Just right</span></label>
+          <label class="opt opt-circle"><input type="radio" name="duration" value="long"><span class="opt-box"></span><span class="opt-txt">Could have been tighter</span></label>
+          <label class="opt opt-circle"><input type="radio" name="duration" value="intensity"><span class="opt-box"></span><span class="opt-txt">Length was fine, intensity needed adjusting</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>What topic or module do you wish went deeper?</label>
+        <textarea placeholder="A framework, a week's theme, a specific skill…"></textarea>
+      </div>
+      <div class="field">
+        <label>How was the community and accountability structure?</label>
+        <textarea placeholder="Did it help you do the work? What would have made it stronger?"></textarea>
+      </div>
+    </div>
+
+    <!-- 06 VIDEO -->
+    <div class="video-block block">
+      <div class="block-head"><span class="block-num">06</span><h2 class="block-title">Want to tell your<br><em>story on camera?</em></h2></div>
+      <p class="block-desc" style="padding-left:38px;margin-bottom:24px;">A 2–3 minute video of you being real about the work could move the next person off the fence. No script. Just you.</p>
+      <div class="option-list">
+        <label class="opt opt-circle"><input type="radio" name="video" value="yes"><span class="opt-box"></span><span class="opt-txt">Yes — I'm in. Reach out to me.</span></label>
+        <label class="opt opt-circle"><input type="radio" name="video" value="maybe"><span class="opt-box"></span><span class="opt-txt">Maybe — tell me more first.</span></label>
+        <label class="opt opt-circle"><input type="radio" name="video" value="written"><span class="opt-box"></span><span class="opt-txt">I'd rather do a written feature + photo.</span></label>
+        <label class="opt opt-circle"><input type="radio" name="video" value="no"><span class="opt-box"></span><span class="opt-txt">Not right now.</span></label>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="block">
+      <div class="block-head"><span class="block-num">07</span><h2 class="block-title">What's <em>next</em></h2></div>
+      <p class="block-desc">The lab ends. The work doesn't.</p>
+
+      <div class="field">
+        <label>What are you building or stepping into after the lab?</label>
+        <textarea placeholder="The move you're making now that your GeniusIdea is defined…"></textarea>
+      </div>
+      <div class="field">
+        <label>Would you be interested in future programs from Faith Ohio? <span class="note">Select all that apply</span></label>
+        <div class="option-list">
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Returning as a mentor for Cohort Two</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">A longer or more advanced program</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">1-on-1 work with Faith Ohio</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">An ongoing alumni community</span></label>
+          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Live events or in-person retreats</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>May we feature you publicly — website, social, newsletter?</label>
+        <div class="option-list">
+          <label class="opt opt-circle"><input type="radio" name="feature" value="yes"><span class="opt-box"></span><span class="opt-txt">Absolutely</span></label>
+          <label class="opt opt-circle"><input type="radio" name="feature" value="maybe"><span class="opt-box"></span><span class="opt-txt">Maybe — reach out first</span></label>
+          <label class="opt opt-circle"><input type="radio" name="feature" value="no"><span class="opt-box"></span><span class="opt-txt">Not right now</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Last thing. Say whatever's on your mind — to us, to yourself, to the next person.</label>
+        <textarea placeholder="No prompt. Just go." style="min-height:120px;"></textarea>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="submit-area">
+      <button type="submit" class="btn">Submit Feedback →</button>
+      <span class="btn-note">Takes 12–18 minutes · Every answer is read personally</span>
+    </div>
+
+  </form>
+
+  <div class="success" id="success">
+    <p class="success-mark">✦ &nbsp; RECEIVED &nbsp; ✦</p>
+    <h2>Thank you for doing<br>this work.</h2>
+    <p>Your reflection matters — we read every submission personally. If you said yes to a video, expect a message from us soon.<br><br>Keep building. The GeniusIdea is just the beginning.</p>
+    <br><br>
+    <p style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#B8B8B8;">— FAITH OHIO · INKFINEETY PARTNERS</p>
+  </div>
+
+  <div class="foot">GENIUSPROOF™ &nbsp;·&nbsp; BY INKFINEETY PARTNERS &nbsp;·&nbsp; © 2026 FAITH OHIO</div>
+</div>
+
+<script>
+  document.querySelectorAll('.nps-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.nps-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.opt input[type="checkbox"]').forEach(chk => {
+    chk.addEventListener('change', function() {
+      const box = this.nextElementSibling;
+      if (this.checked) {
+        box.style.background = 'var(--ink)';
+        box.style.borderColor = 'var(--ink)';
+        box.style.color = '#fff';
+        box.textContent = '✓';
+      } else {
+        box.style.background = '';
+        box.style.borderColor = '';
+        box.style.color = '';
+        box.textContent = '';
+      }
+    });
+  });
+
+  document.getElementById('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xaqpjnlj', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        this.style.display = 'none';
+        document.getElementById('success').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — try again';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
