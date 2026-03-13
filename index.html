@@ -6,7 +6,7 @@
 <title>GeniusProof™ — Define Your Thought Leadership</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Instrument+Sans:wght@400;500;600&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Syne:wght@400;500;600;700&family=DM+Mono:wght@300;400&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -15,7 +15,7 @@
     --deep: #1a1610; --rule: rgba(184,151,58,0.3);
   }
   html { scroll-behavior: smooth; overflow-x: hidden; }
-  body { background: var(--parchment); color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; width: 100%; max-width: 100vw; }
+  body { background: var(--parchment); color: var(--ink); font-family: 'Sync', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; width: 100%; max-width: 100vw; }
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 16px 48px; display: flex; justify-content: space-between; align-items: center;
@@ -100,6 +100,7 @@
   @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   section { padding: 100px 72px; width: 100%; }
   .section-label {
+    font-family: 'DM Mono', monospace;
     font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
   }
@@ -206,7 +207,7 @@
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   input, select, textarea {
     width: 100%; padding: 15px 18px; background: var(--cream); border: 1px solid var(--rule);
-    font-family: 'Instrument Sans', sans-serif; font-size: 0.9rem; color: var(--ink);
+    font-family: 'Sync', sans-serif; font-size: 0.9rem; color: var(--ink);
     outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; border-radius: 0;
   }
   input::placeholder, textarea::placeholder { color: rgba(122,112,96,0.55); }
@@ -214,7 +215,7 @@
   textarea { resize: vertical; min-height: 96px; }
   .form-submit {
     background: var(--ink); color: var(--cream); border: none;
-    font-family: 'Instrument Sans', sans-serif; font-size: 0.78rem; font-weight: 600;
+    font-family: 'Sync', sans-serif; font-size: 0.78rem; font-weight: 600;
     letter-spacing: 0.15em; text-transform: uppercase; padding: 18px 36px;
     cursor: pointer; transition: all 0.25s; width: 100%; margin-top: 6px;
   }
@@ -291,7 +292,7 @@
   <div class="hero-right">
     <blockquote class="hero-quote">
       I finally have a center for everything I do. GeniusProof gave me the language for what I've always known.
-      <footer style="display:block;margin-top:16px;font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:0.82rem;color:#7a7060;border:none;padding:0;background:transparent;">— Cohort One Participant</footer>
+      <footer style="display:block;margin-top:16px;font-family:'Sync',sans-serif;font-style:normal;font-size:0.82rem;color:#7a7060;border:none;padding:0;background:transparent;">— Cohort One Participant</footer>
     </blockquote>
     <div class="hero-stat-block">
       <div class="hero-stat"><h3>6</h3><p>Weeks to a defined body of work</p></div>
