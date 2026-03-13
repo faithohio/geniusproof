@@ -340,16 +340,16 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
       <p class="block-desc">So we know who we're hearing from and can follow up if you're open to a video.</p>
 
       <div class="field-row">
-        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" placeholder="Your name" required></div>
-        <div class="field"><label>Email <span class="req">*</span></label><input type="email" placeholder="you@email.com" required></div>
+        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="full_name" placeholder="Your name" required></div>
+        <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" placeholder="you@email.com" required></div>
       </div>
       <div class="field-row">
-        <div class="field"><label>What do you do? <span class="note">(work/title)</span></label><input type="text" placeholder="Consultant, Coach, Creator…"></div>
-        <div class="field"><label>Phone <span class="note">(for video follow-up)</span></label><input type="tel" placeholder="+234 000 000 0000"></div>
+        <div class="field"><label>What do you do? <span class="note">(work/title)</span></label><input type="text" name="work_title" placeholder="Consultant, Coach, Creator…"></div>
+        <div class="field"><label>Phone <span class="note">(for video follow-up)</span></label><input type="tel" name="phone" placeholder="+234 000 000 0000"></div>
       </div>
       <div class="field">
         <label>How would you describe your body of work before the lab? <span class="req">*</span></label>
-        <textarea placeholder="What was your situation — scattered, unclear, stalled? Give us the honest picture."></textarea>
+        <textarea name="body_of_work_before" placeholder="What was your situation — scattered, unclear, stalled? Give us the honest picture."></textarea>
       </div>
     </div>
 
@@ -360,11 +360,11 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 
       <div class="field">
         <label>What changed? What do you know, own, or see differently now? <span class="req">*</span></label>
-        <textarea placeholder="Shifts in your thinking, clarity you gained, things you finally named…"></textarea>
+        <textarea name="what_changed" placeholder="Shifts in your thinking, clarity you gained, things you finally named…"></textarea>
       </div>
       <div class="field">
         <label>What is your GeniusIdea? How would you articulate it now? <span class="req">*</span></label>
-        <textarea placeholder="Even a rough working version — what's the core ideology you excavated?"></textarea>
+        <textarea name="genius_idea" placeholder="Even a rough working version — what's the core ideology you excavated?"></textarea>
       </div>
       <div class="field">
         <label>Where are you with your Cornerstone Essay?</label>
@@ -377,15 +377,15 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
       </div>
       <div class="field">
         <label>If it's published, drop the link</label>
-        <input type="text" placeholder="https://…">
+        <input type="text" name="essay_link" placeholder="https://…">
       </div>
       <div class="field">
         <label>What's the single biggest breakthrough you had across the 6 weeks? <span class="req">*</span></label>
-        <textarea placeholder="Don't undersell it. What genuinely cracked open for you?"></textarea>
+        <textarea name="biggest_breakthrough" placeholder="Don't undersell it. What genuinely cracked open for you?"></textarea>
       </div>
       <div class="field">
         <label>Was there a specific week, session, or moment that hit different?</label>
-        <textarea placeholder="A framework, a prompt, a conversation, a week's teaching — what landed hardest?"></textarea>
+        <textarea name="moment_that_hit" placeholder="A framework, a prompt, a conversation, a week's teaching — what landed hardest?"></textarea>
       </div>
     </div>
 
@@ -396,7 +396,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 
       <div class="field hl-field">
         <label>In your own words — <span class="note">write it like you'd say it</span></label>
-        <textarea placeholder="GeniusProof gave me…"></textarea>
+        <textarea name="testimonial" placeholder="GeniusProof gave me…"></textarea>
       </div>
       <div class="field">
         <label>Overall experience rating <span class="req">*</span></label>
@@ -422,6 +422,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
           <button type="button" class="nps-btn" data-v="9">9</button>
           <button type="button" class="nps-btn" data-v="10">10</button>
         </div>
+        <input type="hidden" name="nps_score" id="nps_hidden">
       </div>
       <div class="field">
         <label>May we use your testimonial publicly?</label>
@@ -442,27 +443,27 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
       <div class="field">
         <label>What did you walk away with? <span class="note">Select all that apply</span></label>
         <div class="wins-grid">
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">A clear, articulated GeniusIdea</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Cornerstone Essay published</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Mapped intellectual ecosystem</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Language for what I do</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Sharper positioning</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Content that now has a center</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">More confidence in my authority</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">A signature framework</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Clarity on my direction</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Meaningful peer connections</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Impact on my client work</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Something else (describe below)</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="genius_idea_articulated"><span class="opt-box"></span><span class="opt-txt">A clear, articulated GeniusIdea</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="essay_published"><span class="opt-box"></span><span class="opt-txt">Cornerstone Essay published</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="ecosystem_mapped"><span class="opt-box"></span><span class="opt-txt">Mapped intellectual ecosystem</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="language_for_work"><span class="opt-box"></span><span class="opt-txt">Language for what I do</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="sharper_positioning"><span class="opt-box"></span><span class="opt-txt">Sharper positioning</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="content_centered"><span class="opt-box"></span><span class="opt-txt">Content that now has a center</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="more_confidence"><span class="opt-box"></span><span class="opt-txt">More confidence in my authority</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="signature_framework"><span class="opt-box"></span><span class="opt-txt">A signature framework</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="clarity_direction"><span class="opt-box"></span><span class="opt-txt">Clarity on my direction</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="peer_connections"><span class="opt-box"></span><span class="opt-txt">Meaningful peer connections</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="client_impact"><span class="opt-box"></span><span class="opt-txt">Impact on my client work</span></label>
+          <label class="opt"><input type="checkbox" name="wins" value="other"><span class="opt-box"></span><span class="opt-txt">Something else (describe below)</span></label>
         </div>
       </div>
       <div class="field">
         <label>Any other wins worth naming?</label>
-        <textarea placeholder="Results, decisions made, things shipped, conversations changed…"></textarea>
+        <textarea name="other_wins" placeholder="Results, decisions made, things shipped, conversations changed…"></textarea>
       </div>
       <div class="field">
         <label>Paint a picture of the person who needs GeniusProof™ most. Who is she/he?</label>
-        <textarea placeholder="This helps us find the right Cohort Two participants…"></textarea>
+        <textarea name="ideal_participant" placeholder="This helps us find the right Cohort Two participants…"></textarea>
       </div>
     </div>
 
@@ -473,15 +474,15 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 
       <div class="field">
         <label>What did you love most — don't touch this?</label>
-        <textarea placeholder="Content, structure, community, Faith's teaching, the pacing…"></textarea>
+        <textarea name="loved_most" placeholder="Content, structure, community, Faith's teaching, the pacing…"></textarea>
       </div>
       <div class="field">
         <label>What should be changed, added, or cut?</label>
-        <textarea placeholder="What would you do differently if you were designing the next cohort?"></textarea>
+        <textarea name="should_change" placeholder="What would you do differently if you were designing the next cohort?"></textarea>
       </div>
       <div class="field">
         <label>Was anything unclear, underdeveloped, or out of place?</label>
-        <textarea placeholder="A week, a concept, a resource, the overall structure…"></textarea>
+        <textarea name="unclear_or_underdeveloped" placeholder="A week, a concept, a resource, the overall structure…"></textarea>
       </div>
       <div class="field">
         <label>How did 6 weeks feel?</label>
@@ -494,11 +495,11 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
       </div>
       <div class="field">
         <label>What topic or module do you wish went deeper?</label>
-        <textarea placeholder="A framework, a week's theme, a specific skill…"></textarea>
+        <textarea name="wished_went_deeper" placeholder="A framework, a week's theme, a specific skill…"></textarea>
       </div>
       <div class="field">
         <label>How was the community and accountability structure?</label>
-        <textarea placeholder="Did it help you do the work? What would have made it stronger?"></textarea>
+        <textarea name="community_feedback" placeholder="Did it help you do the work? What would have made it stronger?"></textarea>
       </div>
     </div>
 
@@ -521,16 +522,16 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 
       <div class="field">
         <label>What are you building or stepping into after the lab?</label>
-        <textarea placeholder="The move you're making now that your GeniusIdea is defined…"></textarea>
+        <textarea name="whats_next" placeholder="The move you're making now that your GeniusIdea is defined…"></textarea>
       </div>
       <div class="field">
         <label>Would you be interested in future programs from Faith Ohio? <span class="note">Select all that apply</span></label>
         <div class="option-list">
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Returning as a mentor for Cohort Two</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">A longer or more advanced program</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">1-on-1 work with Faith Ohio</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">An ongoing alumni community</span></label>
-          <label class="opt"><input type="checkbox"><span class="opt-box"></span><span class="opt-txt">Live events or in-person retreats</span></label>
+          <label class="opt"><input type="checkbox" name="future_interest" value="mentor_cohort_two"><span class="opt-box"></span><span class="opt-txt">Returning as a mentor for Cohort Two</span></label>
+          <label class="opt"><input type="checkbox" name="future_interest" value="advanced_program"><span class="opt-box"></span><span class="opt-txt">A longer or more advanced program</span></label>
+          <label class="opt"><input type="checkbox" name="future_interest" value="one_on_one"><span class="opt-box"></span><span class="opt-txt">1-on-1 work with Faith Ohio</span></label>
+          <label class="opt"><input type="checkbox" name="future_interest" value="alumni_community"><span class="opt-box"></span><span class="opt-txt">An ongoing alumni community</span></label>
+          <label class="opt"><input type="checkbox" name="future_interest" value="live_events"><span class="opt-box"></span><span class="opt-txt">Live events or in-person retreats</span></label>
         </div>
       </div>
       <div class="field">
@@ -543,7 +544,7 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
       </div>
       <div class="field">
         <label>Last thing. Say whatever's on your mind — to us, to yourself, to the next person.</label>
-        <textarea placeholder="No prompt. Just go." style="min-height:120px;"></textarea>
+        <textarea name="final_words" placeholder="No prompt. Just go." style="min-height:120px;"></textarea>
       </div>
     </div>
 
@@ -568,10 +569,12 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 </div>
 
 <script>
+  // NPS buttons — also write value to hidden input so Formspree captures it
   document.querySelectorAll('.nps-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.nps-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+      document.getElementById('nps_hidden').value = this.getAttribute('data-v');
     });
   });
 
